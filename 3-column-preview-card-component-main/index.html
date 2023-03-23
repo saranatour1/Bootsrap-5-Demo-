@@ -21,6 +21,9 @@
       crossorigin="anonymous"
     />
     <style>
+      *{
+        /* border: 1px solid red; */
+      }
       body {
         background-color: hsl(0, 0%, 95%);
       }
@@ -37,12 +40,12 @@
   </head>
   <body>
     <!-- Parent  -->
-    <div class="container container-sm container-md my-5 rounded-3">
+    <div class="container container-sm container-md my-5  mx-auto ">
       <!-- Row, parent to the smaller children  -->
-      <div class="row d-flex mt-5 w-75 h-100 mx-auto">
+      <div class="row  mt-5 w-90 h-100 mx-auto rounded  row-col-3 justify-content-center">
         <!-- the smaller columns -->
         <!-- note that since they are identiical, do one and copy the rest -->
-        <div class="col orange ">
+        <div class="col-3 orange rounded-start">
           <div>
             <img src="images/icon-sedans.svg" alt="sedans icon" />
           </div>
@@ -55,7 +58,7 @@
             <button>learn more</button>
           </div>
         </div>
-        <div class="col light-blue ">
+        <div class="col-3 light-blue ">
           <div>
             <img src="images/icon-suvs.svg" alt="sedans icon" />
           </div>
@@ -68,7 +71,7 @@
             <button>learn more</button>
           </div>
         </div>
-        <div class="col green ">
+        <div class="col-3 green rounded-end">
           <div>
             <img src="images/icon-luxury.svg" alt="sedans icon" />
           </div>
