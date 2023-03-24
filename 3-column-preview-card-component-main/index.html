@@ -44,6 +44,7 @@
 
         font-family: "Lexend Deca", sans-serif;
         font-weight: 400;
+        height: 2.5rem;
       }
       .btn:hover {
         color: hsl(0, 0%, 95%) !important;
@@ -58,6 +59,9 @@
       }
       .green .btn {
         color: hsl(179, 100%, 13%);
+      }
+      .row{
+        border-radius: 8px;
       }
       h3 {
         color: hsl(0, 0%, 95%);
@@ -78,11 +82,12 @@
     <div class="container container-sm container-md my-5 mx-auto">
       <!-- Row, parent to the smaller children  -->
       <div
-        class="row mt-5 w-90 h-100 mx-auto rounded row-col-3 justify-content-center"
+        class="row mt-5 w-90 h-100 mx-auto row-col-3 justify-content-center "
       >
         <!-- the smaller columns -->
         <!-- note that since they are identiical, do one and copy the rest -->
-        <div class="col-3 orange rounded-start p-5 justify-content-start w-90">
+       
+        <div class="col-12 col-sm-12 col-md-4 col-lg-3  orange rounded-start-lg rounded-lg  rounded-sm p-5 justify-content-start w-90">
           <div class="my-2">
             <img src="images/icon-sedans.svg" alt="sedans icon" />
           </div>
@@ -91,11 +96,11 @@
             Choose a sedan for its affordability and excellent fuel economy.
             Ideal for cruising in the city or on your next road trip.
           </p>
-          <div class="mt-5">
-            <button type="button" class="btn w-50">learn more</button>
+          <div class="mt-5 ">
+            <button type="button" class="btn w-50 ">learn more</button>
           </div>
         </div>
-        <div class="col-3 light-blue p-5 justify-content-start w-90">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-3  light-blue p-5 justify-content-start w-90">
           <div class="my-2">
             <img src="images/icon-suvs.svg" alt="sedans icon" />
           </div>
@@ -108,7 +113,7 @@
             <button type="button" class="btn w-50">learn more</button>
           </div>
         </div>
-        <div class="col-3 green rounded-end p-5 justify-content-start w-90">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-3 green rounded-end p-5 justify-content-start w-90">
           <div class="my-2">
             <img src="images/icon-luxury.svg" alt="sedans icon" />
           </div>
