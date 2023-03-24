@@ -1,17 +1,1722 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Main host page</title>
-  <!-- Linking the CDN style sheet for Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-</head>
-<body>
-  <!-- The notion file will be here with pagnitation  -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BootStrap 5 Demo notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    
+    
+    
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
 
-  <!-- Linking the javascript file for javascript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</body>
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47); 
+          overflow-x: hidden;
+        }
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+  
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      p>.user {
+        opacity: 0.5;
+      }
+
+      td>.user,
+      td>time {
+        white-space: nowrap;
+      }
+
+
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code>code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      .sans {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+
+      .code {
+        font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+      }
+
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+
+      .pdf .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR';
+      }
+
+      .pdf .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR';
+      }
+
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <article id="ccb72f12-4465-47fa-a4c7-1320c32de581" class="page serif container container-sm container-lg">
+      <header>
+        <h1 class="page-title">
+          Bootstrap5 from Basics to advanced ‘not really’
+        </h1>
+      </header>
+      <div class="page-body">
+        <h3 id="12ee9960-3c8a-468e-b70e-dfe3997f2889" class="">
+          Main notes for todays meeting
+        </h3>
+        <hr id="a0b8a47a-e2d1-490c-9e49-3aeae85b9d26" />
+        <ul id="5631954c-f7e6-41f0-9661-a4fdc6a51243" class="to-do-list">
+          <li>
+            <div class="checkbox checkbox-on"></div>
+            <span class="to-do-children-checked"
+              >We will be reading some of the docs, on how to start and how to
+              look for things.
+            </span>
+            <div class="indented"></div>
+          </li>
+        </ul>
+        <ul id="0a2dda55-f07a-465a-a455-5c765ad91de9" class="to-do-list">
+          <li>
+            <div class="checkbox checkbox-on"></div>
+            <span class="to-do-children-checked"
+              >we will compare the different libraries, Bootstrap, Foundation
+              UI, Tachyons , Tailwind CSS.</span
+            >
+            <div class="indented"></div>
+          </li>
+        </ul>
+        <ul id="ef643ca4-d1d4-452e-87d2-0e19eb0f89df" class="to-do-list">
+          <li>
+            <div class="checkbox checkbox-on"></div>
+            <span class="to-do-children-checked"
+              >We will be making two examples, Desktop approach first.
+            </span>
+            <div class="indented"></div>
+          </li>
+        </ul>
+        <ul id="405a7cbf-eaaa-4eea-b7da-d8aa2489be95" class="to-do-list">
+          <li>
+            <div class="checkbox checkbox-off"></div>
+            <span class="to-do-children-unchecked"
+              >we will make a landing page, mobile approach first.
+            </span>
+            <div class="indented"></div>
+          </li>
+        </ul>
+        <ul id="9ac9319a-c2e1-4a85-8b37-767fc691f7e2" class="to-do-list">
+          <li>
+            <div class="checkbox checkbox-on"></div>
+            <span class="to-do-children-checked"
+              >Some general notes, Background.
+            </span>
+            <div class="indented"></div>
+          </li>
+        </ul>
+        <ul id="ded70be9-48e6-424a-8585-540f264cb8f1" class="to-do-list">
+          <li>
+            <div class="checkbox checkbox-on"></div>
+            <span class="to-do-children-checked"
+              >make sure to upload these notes on GitHub, as well as the
+              templates
+            </span>
+            <div class="indented"></div>
+          </li>
+        </ul>
+        <p id="e35360ca-6e1c-4d59-a968-c70c4dcb5bc7" class=""></p>
+        <p id="791774a1-b556-4aa0-bbc3-06657510a398" class="">
+          Hello, This is a weird take on How You could use Bootstrap 5 (the
+          latest version to date). There is nothing wrong with the documentation
+          that is presented already, but some people asked me to do this so here
+          I am, and If you find my English&#x27;s to be weird, this is because
+          it is not my first language!
+        </p>
+        <h3 id="4fd48a32-75a7-4a06-a089-9e33204070eb" class="">Background</h3>
+        <p id="ebc610a1-e8ee-4b6a-b2f2-a634bcfd24e8" class="">
+          So, I would assume that there was nothing wrong with doing your own
+          CSS to your websites or to even leave your website as horrendous
+          looking as possible, But I would assume that making your own CSS
+          (although its unique and can bring more creativity ) over and over and
+          over again can be tiring and inconsistent, also creating your own
+          media queries can take a long time, and at the end it will not be 100%
+          accurate, that’s my assumption.
+        </p>
+        <figure
+          class="block-color-gray_background callout"
+          style="white-space: pre-wrap; display: flex"
+          id="fedc6538-feac-42f1-86a8-bd241914fa95"
+        >
+          <div style="font-size: 1.5em"><span class="icon">🔖</span></div>
+          <div style="width: 100%">
+            find<a href="http://www.csszengarden.com/"> CSS Zen garden </a> to
+            see the different style sheets available. also check out
+            <a href="https://caniuse.com/">Can I use</a>? website to check if
+            the CSS or html tag you are using works for every browser
+          </div>
+        </figure>
+        <h3 id="ab5f3d06-db6c-4ef3-900e-77f2d1b97c95" class="">
+          Actual History
+        </h3>
+        <p id="a399b410-4ff3-4fbe-aa7d-b8b041526c7b" class="">
+          the concept of ‘CSS style guide’ for bootstrap was done by none other
+          than twitter them selves, and they didn’t expect that developers world
+          wide could make use of there CSS library etc.
+        </p>
+        <figure
+          class="block-color-gray_background callout"
+          style="white-space: pre-wrap; display: flex"
+          id="6e68b33f-7446-49fd-9659-1d975c3cc7d6"
+        >
+          <div style="font-size: 1.5em"><span class="icon">🔖</span></div>
+          <div style="width: 100%">
+            Check out bootstrap first release!<a
+              href="https://getbootstrap.com/1.0.0/"
+            >
+              here
+            </a>
+          </div>
+        </figure>
+        <h1 id="c4a8c203-022d-4777-89a4-4812ae6be209" class="">
+          <details open=""><summary>Diving in</summary></details>
+        </h1>
+        <div class="indented">
+          <p id="4a099f2e-9f2b-4bf8-8f3c-fd48487ab990" class="">
+            So, in my opinion there is no better way of explaining the concept
+            behind Bootstrap than to look at it from a CSS point of view, and
+            you can always look at the documentation as a reference , cause I
+            always tend to over <strong>exaggerate</strong> the important parts
+            and topics. So here are some of the main things explained here,
+            toggle the items to see what’s inside!
+          </p>
+          <figure
+            class="block-color-gray_background callout"
+            style="white-space: pre-wrap; display: flex"
+            id="983df5f4-1bbe-4eee-9605-29e611a0ef87"
+          >
+            <div style="font-size: 1.5em"><span class="icon">🔖</span></div>
+            <div style="width: 100%">
+              A Top down approach ,from big to small
+            </div>
+          </figure>
+          <h3 id="e8f09e19-f998-436c-bdae-77b94b94707c" class="">
+            <details open="">
+              <summary>Layouts, Display flex and grid</summary>
+            </details>
+          </h3>
+          <div class="indented">
+            <p id="6f319b4d-37be-47b7-88d0-81b4130e47a4" class="">
+              from your previous knowledge of CSS, We found out that Flex box
+              and grid make your life 50% easier-my personal rating-, with that
+              knowledge in mind we can simplify the terms when using CSS and
+              bootstrap.
+            </p>
+            <h3 id="d73d8294-2693-4e4d-baec-6dc571321776" class="">
+              <details open=""><summary>Using Flex box</summary></details>
+            </h3>
+            <div class="indented">
+              <p id="d561bda7-b413-4790-836c-8b54be81f8fa" class="">
+                in normal CSS, this is how we explain that an element has the
+                property of flex:
+              </p>
+              <figure id="827466bc-60fb-4718-b16b-a62a74b3432f" class="image">
+                <a
+                  href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled.png"
+                  ><img
+                    style="width: 1920px"
+                    src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled.png"
+                /></a>
+              </figure>
+              <div
+                id="6726c943-e45c-4fbc-9602-79de71da869f"
+                class="column-list"
+              >
+                <div
+                  id="f4cc79ea-2551-48aa-aa62-6d8d70964a3a"
+                  style="width: 50%"
+                  class="column"
+                >
+                  <pre
+                    id="4b3dfdc1-f36c-42e9-8036-0b4c8d22f04c"
+                    class="code"
+                  ><code>&lt;div class=&quot;flex&quot;&gt;
+    &lt;div class=&quot;element&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;element&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;element&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;element&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;element&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+                  <p id="44b94b92-4a9a-49fb-8c68-cd9e15c121c0" class=""></p>
+                </div>
+                <div
+                  id="e61ca560-3590-4e60-92dd-7d97dfe0a661"
+                  style="width: 50%"
+                  class="column"
+                >
+                  <pre
+                    id="cda40efa-7a25-412d-8c56-d40565d3fd9c"
+                    class="code"
+                  ><code>.flex{
+    display: flex;
+    width: 90%;
+  }
+  .element{
+    /* flex: 0.23; */
+    width: 20%;
+    height: 200px;
+    background-color: lightskyblue;
+    border: 1px solid black;
+  }</code></pre>
+                </div>
+              </div>
+              <p id="4deec83b-31f1-4829-a4cb-2bed2b4f4014" class="">
+                to make the elements go from top to bottom, or left to right, we
+                use <code>flex-direction: column;</code> and
+                <code>flex-direction: row; </code> respectively. Note that the
+                default is row.
+              </p>
+              <figure id="9d37a61d-9ccc-4fe6-a635-7402a3d09cd0" class="image">
+                <a
+                  href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%201.png"
+                  ><img
+                    style="width: 886px"
+                    src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%201.png"
+                /></a>
+              </figure>
+              <p id="e1394b41-0d6a-4574-a134-f4f8e5c22bb8" class="">
+                to be able to move them around, based on size:
+              </p>
+              <ul
+                id="d045f922-9839-4b3f-977c-95bf6cbd792c"
+                class="bulleted-list"
+              >
+                <li style="list-style-type: disc">
+                  when the default <code>flex-direction: row;</code> , to be
+                  able to move the items in the horizontal direction you use one
+                  of these:
+                  <ul
+                    id="d64a4648-115e-4c3b-b652-baac482ac0da"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>justify-content: flex-start;</code>
+                    </li>
+                  </ul>
+                  <ul
+                    id="7702332d-7c33-4a25-bd30-5c715ab68e33"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>justify-content: flex-end;</code>
+                    </li>
+                  </ul>
+                  <ul
+                    id="9e340099-cccf-48ce-a2b2-574138cac0b7"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>justify-content: space-around;</code>
+                    </li>
+                  </ul>
+                  <ul
+                    id="dba90c82-23a7-4cdb-a66c-e60f8c456f5c"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>justify-content: space-between;</code>
+                    </li>
+                  </ul>
+                  <ul
+                    id="9545aaa1-8f8f-4f59-b1cc-b2ca64d875e1"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>justify-content: space-evenly;</code>
+                    </li>
+                  </ul>
+                  <ul
+                    id="3b6c53cc-19c5-4151-8cde-2e1dc56a8224"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>justify-content: center;</code>
+                    </li>
+                  </ul>
+                  <p id="a9e427d9-a318-43a5-a156-7b445643fb78" class="">
+                    to be able to move the items on the vertical axis:
+                  </p>
+                  <ul
+                    id="025585f2-ae23-4ae9-aca7-b6c011423182"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>align-items: center;</code>
+                    </li>
+                  </ul>
+                  <ul
+                    id="9693ea57-3a1a-4467-8c31-bf46157084cb"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>align-items: flex-end;</code>
+                    </li>
+                  </ul>
+                  <ul
+                    id="007c1fda-0b0f-4743-870d-3e1d15e2d4c4"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>align-items: flex-start;</code>
+                    </li>
+                  </ul>
+                  <ul
+                    id="aa3692a3-a76b-43ab-b260-22820dd237aa"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: circle">
+                      <code>align-items: baseline;</code>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <figure
+                class="block-color-gray_background callout"
+                style="white-space: pre-wrap; display: flex"
+                id="bf8b44b0-09b4-46ca-923c-e04cc833cd14"
+              >
+                <div style="font-size: 1.5em"><span class="icon">🔖</span></div>
+                <div style="width: 100%">
+                  It’s always a good idea to make good use of the developer
+                  tools on chrome when using anything that is related to CSS,
+                  check it out
+                  <a href="https://developer.chrome.com/docs/devtools/">here</a>
+                </div>
+              </figure>
+              <p id="b9367f64-2cb8-4304-93da-0dec36316c2d" class="">
+                Now the reason why we are all here from the first place:
+              </p>
+              <h3 id="ec1218ef-b0d9-4d4d-87c8-482e54e3ac10" class="">
+                Enabling flex behavior with Bootstrap 5
+              </h3>
+              <p id="c7c54970-f62f-4449-8f09-2c905e555be8" class="">
+                to enable flex behavior use :
+              </p>
+              <pre
+                id="3b54f2f9-30c7-460f-aed1-f468a1878224"
+                class="code"
+              ><code>&lt;div class=&quot;d-flex p-2&quot;&gt;I&#x27;m a flexbox container!&lt;/div&gt;</code></pre>
+              <figure id="91623fce-4fb8-4638-a501-21e7a341f858" class="image">
+                <a
+                  href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%202.png"
+                  ><img
+                    style="width: 926px"
+                    src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%202.png"
+                /></a>
+              </figure>
+              <p id="1a923f4a-572d-491b-b0e8-5facbf0d8490" class="">
+                and for inline flex, use : <code>d-inline-flex</code>
+              </p>
+              <p id="ed7eea2a-0a96-46e2-9936-ac66a80e7b76" class="">
+                also, although we haven’t mentioned it yet but responsive values
+                exist, sm, lg, md , xl: for example <code>d-sm-flex</code>,
+                these indicate the media queries set for each screen size,
+                starting from lg and ending with ‘no size’ or other words small
+                size, this is very important and very handy to manipulate.
+              </p>
+              <ol
+                type="1"
+                id="2cff7ccd-0213-496e-b9d2-0a536ca16da7"
+                class="numbered-list"
+                start="1"
+              >
+                <li>flex direction</li>
+              </ol>
+              <table
+                id="10b7bee7-5538-465c-92df-3b6692e1d5ab"
+                class="simple-table"
+              >
+                <thead class="simple-table-header">
+                  <tr id="7634d63a-c998-491f-81b7-cd29f772bc94">
+                    <th
+                      id="vO:Y"
+                      class="simple-table-header-color simple-table-header"
+                      style="width: 288.5152282714844px"
+                    >
+                      CSS
+                    </th>
+                    <th
+                      id="b`ns"
+                      class="simple-table-header-color simple-table-header"
+                      style="width: 288.5152282714844px"
+                    >
+                      Bootstrap
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="0b717771-91eb-4f88-8e1b-6af0aa7b7c00">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>flex-direction:row;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>flex-row</code>
+                    </td>
+                  </tr>
+                  <tr id="5949399c-5a06-4d07-b99e-e524c92e56f4">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>flex-direction: row-reverse;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>flex-row-reverse</code>
+                    </td>
+                  </tr>
+                  <tr id="9945d742-9cef-4d8c-b38b-7b48cebb50ec">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>flex-direction: column;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>flex-column</code>
+                    </td>
+                  </tr>
+                  <tr id="1a212d98-aaa8-479c-a7a2-ec53bbce0215">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>flex-direction: column-reverse;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>flex-column-reverse</code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p id="7a5ed9ea-40ed-4b20-ae25-d250b954763e" class="">
+                and responsive variations are available as well, to use them
+                just write size after the word flex, like so:<code>
+                  flex-md-row</code
+                >.
+              </p>
+              <ol
+                type="1"
+                id="33505cc8-70b4-4578-805f-722e1cef7d51"
+                class="numbered-list"
+                start="2"
+              >
+                <li>Justify content</li>
+              </ol>
+              <table
+                id="2c489406-79e1-4642-ad59-2ac268b3c63e"
+                class="simple-table"
+              >
+                <thead class="simple-table-header">
+                  <tr id="3fc56ef8-6928-42ce-b1f4-1cf7ce7032b9">
+                    <th
+                      id="vO:Y"
+                      class="simple-table-header-color simple-table-header"
+                      style="width: 288.5152282714844px"
+                    >
+                      CSS
+                    </th>
+                    <th
+                      id="b`ns"
+                      class="simple-table-header-color simple-table-header"
+                      style="width: 288.5152282714844px"
+                    >
+                      Bootstrap
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="0adc7f46-2d12-4b45-9a21-d3a8cc040d58">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>justify-content: flex-start;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>justify-content-start</code>
+                    </td>
+                  </tr>
+                  <tr id="71a72c1e-341b-4b61-87e2-84890664606c">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>justify-content: flex-end;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>justify-content-end</code>
+                    </td>
+                  </tr>
+                  <tr id="ed4a97e8-15cd-4baf-bd71-1c519a1424bb">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>justify-content: space-around;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>justify-content-around</code>
+                    </td>
+                  </tr>
+                  <tr id="9473d023-3600-4a58-a9e4-5bd501512e44">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>justify-content: space-between;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>justify-content-between</code>
+                    </td>
+                  </tr>
+                  <tr id="90aa5881-e3a7-40f3-981e-69f3d07a5e9c">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>justify-content: space-evenly;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>justify-content-evenly</code>
+                    </td>
+                  </tr>
+                  <tr id="8ad7d55e-1c97-409a-8dd3-646f60a0fb3e">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      <code>justify-content: center;</code>
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>justify-content-center</code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p id="6b790651-3984-45c2-8d06-b2cf301920ef" class="">
+                and responsive variations are available as well, to use them
+                just write size after the words justify-content, like
+                so:<code>justify-content-sm-start</code>.
+              </p>
+              <ol
+                type="1"
+                id="ad8c22d7-7a3e-4953-84f9-84489e148075"
+                class="numbered-list"
+                start="3"
+              >
+                <li>Align items</li>
+              </ol>
+              <table
+                id="fd898939-42c1-4991-aa91-a2167ad0764d"
+                class="simple-table"
+              >
+                <thead class="simple-table-header">
+                  <tr id="c2c44730-c512-4f9b-a481-ad92f91eb401">
+                    <th
+                      id="vO:Y"
+                      class="simple-table-header-color simple-table-header"
+                      style="width: 288.5152282714844px"
+                    >
+                      CSS
+                    </th>
+                    <th
+                      id="b`ns"
+                      class="simple-table-header-color simple-table-header"
+                      style="width: 288.5152282714844px"
+                    >
+                      Bootstrap
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="512e0619-6ec1-4276-9c67-6bc657755282">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      align-items: center;
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>align-items-center</code>
+                    </td>
+                  </tr>
+                  <tr id="18538beb-973c-4c30-9366-c04a53344dcf">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      align-items: flex-end;
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>align-items-end</code>
+                    </td>
+                  </tr>
+                  <tr id="4af97529-e391-4524-9b17-529f5a9f8e13">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      align-items: flex-start;
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>align-items-start</code>
+                    </td>
+                  </tr>
+                  <tr id="401c8870-7c93-4f29-bcdc-d6397ba70eff">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      align-items: baseline;
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>align-items-baseline</code>
+                    </td>
+                  </tr>
+                  <tr id="c6bca5ec-909d-46fe-92db-62fb4b83d2ff">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      align-items: stretch;
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>align-items-stretch</code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p id="7823b9cb-a066-4459-ae8e-1e6f72c6437a" class="">
+                I’ll assume from this point on that the size comes after the
+                property, to enable responsiveness use the words align-items,
+                like so:<code>align-items-sm-center</code>
+              </p>
+              <ol
+                type="1"
+                id="28f5e9e7-60a2-40b0-86d4-35cae7bae0f3"
+                class="numbered-list"
+                start="3"
+              >
+                <li>align self</li>
+              </ol>
+              <table
+                id="14468e3a-cc22-481a-903c-01388752d229"
+                class="simple-table"
+              >
+                <thead class="simple-table-header">
+                  <tr id="2a05b716-f72f-43ec-b917-d52571394796">
+                    <th
+                      id="vO:Y"
+                      class="simple-table-header-color simple-table-header"
+                      style="width: 288.5152282714844px"
+                    >
+                      CSS
+                    </th>
+                    <th
+                      id="b`ns"
+                      class="simple-table-header-color simple-table-header"
+                      style="width: 288.5152282714844px"
+                    >
+                      Bootstrap
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="698d8b9c-bd1c-41b5-8ed8-74fd48c26bac">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      align-self: stretch;
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>align-self-stretch</code>
+                    </td>
+                  </tr>
+                  <tr id="59a4e78c-b7d2-459f-8db3-ea61b793d6fb">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      align-self: center;
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>align-self-center</code>
+                    </td>
+                  </tr>
+                  <tr id="1a2946ce-54dc-4e01-a803-b3c011f9ca77">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      align-self: start;
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>align-self-start</code>
+                    </td>
+                  </tr>
+                  <tr id="630e64d0-02aa-4828-a658-6e2017d14563">
+                    <td id="vO:Y" class="" style="width: 288.5152282714844px">
+                      align-self: end;
+                    </td>
+                    <td id="b`ns" class="" style="width: 288.5152282714844px">
+                      <code>align-self-end</code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <ol
+                type="1"
+                id="98e99ca6-e410-45ad-8624-6b68912d8889"
+                class="numbered-list"
+                start="4"
+              >
+                <li>flex- fill</li>
+              </ol>
+              <p id="dd5282bb-ea67-46fc-8fd2-6908696320a7" class="">
+                its a class that forces a series of sibling elements to force
+                them into widths equal to their content while taking up all the
+                available horizontal space.
+              </p>
+              <ol
+                type="1"
+                id="23be49f3-39e8-498a-b3aa-0bbd9575a957"
+                class="numbered-list"
+                start="5"
+              >
+                <li>flex grow and shrink</li>
+              </ol>
+              <p id="18a3b614-712b-46d7-92b1-5584b424078a" class="">
+                to toggle the items ability to grow to fill the available space
+                use <code>flex-grow-*</code> , with 0 and 1 as the respective
+                values.
+              </p>
+              <p id="ab8c16d1-ad52-45b5-89fd-48bee669653b" class="">
+                and same goes to shrink in the opposite direction,
+                <code>flex-shrink-*</code>.
+              </p>
+              <ol
+                type="1"
+                id="c19f1870-1529-41fc-b90d-cd3c16d7c662"
+                class="numbered-list"
+                start="6"
+              >
+                <li>flex wrap</li>
+              </ol>
+              <p id="cca7e50a-a254-45bb-980b-502a0c52c91d" class="">
+                3 possible variations:
+                <code>flex-nowrap</code>,<code>flex-wrap</code>,<code
+                  >flex-wrap-reverse</code
+                >
+              </p>
+              <figure
+                class="block-color-gray_background callout"
+                style="white-space: pre-wrap; display: flex"
+                id="855fa49d-131c-430c-9393-6bc1f8cd4bc8"
+              >
+                <div style="font-size: 1.5em"><span class="icon">🔖</span></div>
+                <div style="width: 100%">
+                  Please make sure to read the documentation as this is just a
+                  plain<strong> copy</strong> from the documentation itself!
+                  <a
+                    href="https://getbootstrap.com/docs/5.3/utilities/flex/#enable-flex-behaviors"
+                    >here
+                  </a>
+                </div>
+              </figure>
+              <p id="9c2417d4-3438-4930-aad6-21ddf3e08f16" class=""></p>
+              <p id="bca83587-19cf-4ecb-bf82-a9125e2935f4" class=""></p>
+            </div>
+            <h3 id="d75f7640-e8cf-4fc6-9941-26fb5844275d" class="">
+              <details open=""><summary>Using grid</summary></details>
+            </h3>
+            <div class="indented">
+              <p id="8fd56c0a-1d6f-4c83-86e4-bc16068deaf1" class="">
+                basically , Containers are required to make use of bootstrap’s
+                grid system.
+              </p>
+              <figure
+                class="block-color-gray_background callout"
+                style="white-space: pre-wrap; display: flex"
+                id="82f00d54-473c-4bdd-9ca8-7de9bca11494"
+              >
+                <div style="font-size: 1.5em"><span class="icon">🔖</span></div>
+                <div style="width: 100%">
+                  Take a look at the examples provided in the documentation on
+                  containers and grid
+                  <a
+                    href="https://getbootstrap.com/docs/5.3/examples/grid/#containers"
+                    >here
+                  </a>
+                </div>
+              </figure>
+              <p id="c9980556-a629-4152-98fd-171d2924b2fb" class="">
+                this table is very useful:
+              </p>
+              <table
+                id="60700639-ad24-4c7f-8afd-2a532779f903"
+                class="simple-table"
+              >
+                <tbody>
+                  <tr id="5754f902-9850-4e41-abdc-30e4c6f90d15">
+                    <td id="BI=@" class=""></td>
+                    <td id="&lt;@Y|" class="">Extra small&lt;576px</td>
+                    <td id="=T^j" class="">Small≥576px</td>
+                    <td id="&lt;R{;" class="">Medium≥768px</td>
+                    <td id="Is|q" class="">Large≥992px</td>
+                    <td id="qVZK" class="">X-Large≥1200px</td>
+                    <td id="q`Qr" class="">XX-Large≥1400px</td>
+                  </tr>
+                  <tr id="4dc7827d-e111-4101-9eb8-257928a4d390">
+                    <td id="BI=@" class=""><code>.container</code></td>
+                    <td id="&lt;@Y|" class="">100%</td>
+                    <td id="=T^j" class="">540px</td>
+                    <td id="&lt;R{;" class="">720px</td>
+                    <td id="Is|q" class="">960px</td>
+                    <td id="qVZK" class="">1140px</td>
+                    <td id="q`Qr" class="">1320px</td>
+                  </tr>
+                  <tr id="8d024726-73e5-4815-9924-ab2b81738e48">
+                    <td id="BI=@" class=""><code>.container-sm</code></td>
+                    <td id="&lt;@Y|" class="">100%</td>
+                    <td id="=T^j" class="">540px</td>
+                    <td id="&lt;R{;" class="">720px</td>
+                    <td id="Is|q" class="">960px</td>
+                    <td id="qVZK" class="">1140px</td>
+                    <td id="q`Qr" class="">1320px</td>
+                  </tr>
+                  <tr id="392015bb-3651-42c4-bfc3-5021d976eca1">
+                    <td id="BI=@" class=""><code>.container-md</code></td>
+                    <td id="&lt;@Y|" class="">100%</td>
+                    <td id="=T^j" class="">100%</td>
+                    <td id="&lt;R{;" class="">720px</td>
+                    <td id="Is|q" class="">960px</td>
+                    <td id="qVZK" class="">1140px</td>
+                    <td id="q`Qr" class="">1320px</td>
+                  </tr>
+                  <tr id="2d7a4b9d-bfaa-46a8-b825-8cb9e4197ab2">
+                    <td id="BI=@" class=""><code>.container-lg</code></td>
+                    <td id="&lt;@Y|" class="">100%</td>
+                    <td id="=T^j" class="">100%</td>
+                    <td id="&lt;R{;" class="">100%</td>
+                    <td id="Is|q" class="">960px</td>
+                    <td id="qVZK" class="">1140px</td>
+                    <td id="q`Qr" class="">1320px</td>
+                  </tr>
+                  <tr id="64b218c5-9070-46ef-b928-329dded98132">
+                    <td id="BI=@" class=""><code>.container-xl</code></td>
+                    <td id="&lt;@Y|" class="">100%</td>
+                    <td id="=T^j" class="">100%</td>
+                    <td id="&lt;R{;" class="">100%</td>
+                    <td id="Is|q" class="">100%</td>
+                    <td id="qVZK" class="">1140px</td>
+                    <td id="q`Qr" class="">1320px</td>
+                  </tr>
+                  <tr id="6127247c-7cce-41cc-8c57-7b77d1628025">
+                    <td id="BI=@" class=""><code>.container-xxl</code></td>
+                    <td id="&lt;@Y|" class="">100%</td>
+                    <td id="=T^j" class="">100%</td>
+                    <td id="&lt;R{;" class="">100%</td>
+                    <td id="Is|q" class="">100%</td>
+                    <td id="qVZK" class="">100%</td>
+                    <td id="q`Qr" class="">1320px</td>
+                  </tr>
+                  <tr id="f5a42f7c-5f73-44d8-94f2-45ad82dd4983">
+                    <td id="BI=@" class=""><code>.container-fluid</code></td>
+                    <td id="&lt;@Y|" class="">100%</td>
+                    <td id="=T^j" class="">100%</td>
+                    <td id="&lt;R{;" class="">100%</td>
+                    <td id="Is|q" class="">100%</td>
+                    <td id="qVZK" class="">100%</td>
+                    <td id="q`Qr" class="">100%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p id="02686006-0723-4d49-9cbb-33eb0617c22d" class="">
+                Now off to the grid:
+              </p>
+              <p id="9bebb0f8-6557-478b-8fc8-c8510d04ea9a" class="">
+                The grid system of bootstrap has a default of 12 columns that
+                you can make use of in your pages, it is really to implement
+                check the docs again for a better view
+                <a
+                  href="https://www.notion.so/Bootstrap5-from-Basics-to-advanced-not-really-ccb72f12446547faa4c71320c32de581"
+                  >here</a
+                >.
+              </p>
+              <p id="41f0f4f3-21e4-4d3b-9b4c-e30a14072b43" class="">
+                here are some notes:
+              </p>
+              <ol
+                type="1"
+                id="5287481e-6e91-428f-b290-e2e006bde148"
+                class="numbered-list"
+                start="1"
+              >
+                <li>
+                  wrapping the elements in a container is very handy, as the
+                  columns themselves are responsive as well.
+                </li>
+              </ol>
+              <ol
+                type="1"
+                id="be906341-10e8-4259-999d-1388d7c83bf6"
+                class="numbered-list"
+                start="2"
+              >
+                <li>
+                  a handy class is :<code>col-{breakpoint}-auto</code> which
+                  sets the size for the columns based on the width of their
+                  content.
+                </li>
+              </ol>
+              <ol
+                type="1"
+                id="8e272db7-40e7-4d26-a476-989f6286e06b"
+                class="numbered-list"
+                start="3"
+              >
+                <li>
+                  you can use flex with grids, where you don’t need to specify
+                  ‘d-flex’ class.
+                </li>
+              </ol>
+              <ol
+                type="1"
+                id="63214110-22a0-4ded-a564-46c7e39f9f71"
+                class="numbered-list"
+                start="4"
+              >
+                <li>
+                  a handy class can be to specify the number of columns to each
+                  row, example: <code>row row-cols-2</code>, and if you set to
+                  auto it fits elements to the horizontal space:<code
+                    >row-cols-auto</code
+                  >
+                </li>
+              </ol>
+              <ol
+                type="1"
+                id="33aa853b-ac94-4bb0-9168-90b08f4b1792"
+                class="numbered-list"
+                start="5"
+              >
+                <li>
+                  when nesting , the number of columns is related to the
+                  available space.
+                </li>
+              </ol>
+              <h3 id="b12f8976-8a8c-4050-b6b9-d52b9e7675c7" class="">
+                <details open=""><summary>breakpoints</summary></details>
+              </h3>
+              <div class="indented">
+                <figure
+                  class="block-color-gray_background callout"
+                  style="white-space: pre-wrap; display: flex"
+                  id="e3325d66-2ed5-490b-9975-cc4bf0b0b72f"
+                >
+                  <div style="font-size: 1.5em">
+                    <span class="icon">🔖</span>
+                  </div>
+                  <div style="width: 100%">
+                    Please go through the docs
+                    <a
+                      href="https://getbootstrap.com/docs/5.3/layout/breakpoints/"
+                      >here</a
+                    >
+                    to read more about screen sizes. Bootstrap uses We most
+                    commonly use <code>min-width</code> in their media queries
+                    as it’s a mobile first approach.
+                  </div>
+                </figure>
+                <p id="de6037e0-520d-4212-a8ab-cb8b5e32ee84" class="">
+                  See the table referenced above for break points:
+                </p>
+                <table
+                  id="61ddce2a-e98e-443b-b182-04f68a0d6db8"
+                  class="simple-table"
+                >
+                  <thead class="simple-table-header">
+                    <tr id="5d4b896f-134f-4a8c-b274-14e72db5991e">
+                      <th
+                        id="kDd@"
+                        class="simple-table-header-color simple-table-header"
+                        style="width: 222.6739298502604px"
+                      >
+                        Breakpoint
+                      </th>
+                      <th
+                        id="MY_P"
+                        class="simple-table-header-color simple-table-header"
+                        style="width: 222.6739298502604px"
+                      >
+                        Class infix
+                      </th>
+                      <th
+                        id="AVZ]"
+                        class="simple-table-header-color simple-table-header"
+                        style="width: 222.6739298502604px"
+                      >
+                        Dimensions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="5c07bdb9-23d9-4c2f-8d0a-cd86640e680e">
+                      <td id="kDd@" class="" style="width: 222.6739298502604px">
+                        Extra small
+                      </td>
+                      <td id="MY_P" class="" style="width: 222.6739298502604px">
+                        <em>None</em>
+                      </td>
+                      <td id="AVZ]" class="" style="width: 222.6739298502604px">
+                        &lt;576px
+                      </td>
+                    </tr>
+                    <tr id="98d14653-b6b7-4f9e-a94b-1d76589dc240">
+                      <td id="kDd@" class="" style="width: 222.6739298502604px">
+                        Small
+                      </td>
+                      <td id="MY_P" class="" style="width: 222.6739298502604px">
+                        <code>sm</code>
+                      </td>
+                      <td id="AVZ]" class="" style="width: 222.6739298502604px">
+                        ≥576px
+                      </td>
+                    </tr>
+                    <tr id="b429bdfd-2ce3-4cce-9d3c-139dea162acc">
+                      <td id="kDd@" class="" style="width: 222.6739298502604px">
+                        Medium
+                      </td>
+                      <td id="MY_P" class="" style="width: 222.6739298502604px">
+                        <code>md</code>
+                      </td>
+                      <td id="AVZ]" class="" style="width: 222.6739298502604px">
+                        ≥768px
+                      </td>
+                    </tr>
+                    <tr id="aa233278-5f04-4675-9909-48f98ad6c7fe">
+                      <td id="kDd@" class="" style="width: 222.6739298502604px">
+                        Large
+                      </td>
+                      <td id="MY_P" class="" style="width: 222.6739298502604px">
+                        <code>lg</code>
+                      </td>
+                      <td id="AVZ]" class="" style="width: 222.6739298502604px">
+                        ≥992px
+                      </td>
+                    </tr>
+                    <tr id="6f8c7355-e696-4101-b5f9-bedf5f05200d">
+                      <td id="kDd@" class="" style="width: 222.6739298502604px">
+                        Extra large
+                      </td>
+                      <td id="MY_P" class="" style="width: 222.6739298502604px">
+                        <code>xl</code>
+                      </td>
+                      <td id="AVZ]" class="" style="width: 222.6739298502604px">
+                        ≥1200px
+                      </td>
+                    </tr>
+                    <tr id="841baf2a-44e4-41dc-84e3-1950d85b4b70">
+                      <td id="kDd@" class="" style="width: 222.6739298502604px">
+                        Extra extra large
+                      </td>
+                      <td id="MY_P" class="" style="width: 222.6739298502604px">
+                        <code>xxl</code>
+                      </td>
+                      <td id="AVZ]" class="" style="width: 222.6739298502604px">
+                        ≥1400px
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p id="6434e82f-dce2-4c64-85d1-412fd5d0b764" class="">
+                  Speaking of which let’s mention containers before going to
+                  grid
+                </p>
+              </div>
+            </div>
+            <h3 id="d539af35-37a3-474e-b36f-593f3e362b72" class="">
+              <details open=""><summary>Margins and padding</summary></details>
+            </h3>
+            <div class="indented">
+              <p id="26b89652-8799-497a-baed-967ac269e8b6" class="">
+                margin and padding have the same ‘attributes’:
+              </p>
+              <ul
+                id="8f01f8d3-fab2-47c1-9c06-d9e0792aa168"
+                class="bulleted-list"
+              >
+                <li style="list-style-type: disc">m stands for margin</li>
+              </ul>
+              <ul
+                id="5336aaf8-51dc-422a-8aba-e7064d77436e"
+                class="bulleted-list"
+              >
+                <li style="list-style-type: disc">p stands for padding</li>
+              </ul>
+              <p id="ba790815-f519-4de5-a821-84c8a83924a0" class="">
+                the 4 sides:
+              </p>
+              <ul
+                id="cc99c202-fda4-4e58-abaa-e90e244b5414"
+                class="bulleted-list"
+              >
+                <li style="list-style-type: disc">t for top</li>
+              </ul>
+              <ul
+                id="1049bdc9-3526-43ca-9805-ce272463ce74"
+                class="bulleted-list"
+              >
+                <li style="list-style-type: disc">b for bottom</li>
+              </ul>
+              <ul
+                id="b817065a-aede-4bd1-b8cf-131b69176e4b"
+                class="bulleted-list"
+              >
+                <li style="list-style-type: disc">
+                  s for start , left in left to right approach, and right for
+                  right to left approach.
+                </li>
+              </ul>
+              <ul
+                id="8f858194-7754-454f-8721-6c47d3a98dbf"
+                class="bulleted-list"
+              >
+                <li style="list-style-type: disc">
+                  e for end, right in left to right approach, and left for right
+                  to left approach.
+                </li>
+              </ul>
+              <ul
+                id="5f3a1095-d267-4050-b2eb-a5821c6caa6c"
+                class="bulleted-list"
+              >
+                <li style="list-style-type: disc">
+                  x for horizontal spacing of the left and right.
+                </li>
+              </ul>
+              <ul
+                id="d6e01783-29e0-4ee6-899f-bd007aa5230b"
+                class="bulleted-list"
+              >
+                <li style="list-style-type: disc">
+                  y for vertical spacing on top on bottom
+                </li>
+              </ul>
+              <p id="a8ebf86f-3deb-41a3-a585-4a5a80bef48f" class="">
+                sizes are from 0-5 , and you can set it to auto
+              </p>
+              <h3 id="45091aaf-a077-41cd-bdf0-01b2795cb663" class="">
+                <details open=""><summary>Gap</summary></details>
+              </h3>
+              <div class="indented">
+                <p id="e9ad8d33-ba5c-419b-aa7d-aed44539a2f9" class="">
+                  When using <code>display: grid</code> or <code
+                    >display: flex</code
+                  >, you can make use of <code>gap</code>  utilities on the
+                  parent element, it sets the spaces between the elements to
+                  what ever you set it.
+                </p>
+                <figure
+                  class="block-color-gray_background callout"
+                  style="white-space: pre-wrap; display: flex"
+                  id="736cbf3c-e843-4648-8a2a-6881bfd8e231"
+                >
+                  <div style="font-size: 1.5em">
+                    <span class="icon">🔖</span>
+                  </div>
+                  <div style="width: 100%">
+                    Docs my friend.
+                    <a
+                      href="https://getbootstrap.com/docs/5.3/utilities/spacing/#margin-and-padding"
+                      >here </a
+                    >, check the row gap and column gap classes. also check the
+                    gutters section<a
+                      href="https://getbootstrap.com/docs/5.3/layout/gutters/"
+                    >
+                      here
+                    </a>
+                  </div>
+                </figure>
+                <p id="29879a51-c4d1-4c8f-aa5b-f86632ec50a6" class=""></p>
+                <p id="95f1f077-5699-4b8d-99c6-7a8571ba48ee" class=""></p>
+              </div>
+            </div>
+            <p id="0690e8e3-a5cc-48ea-a008-6dae2b4de9c2" class=""></p>
+            <p id="f10eb1f7-ba1c-4d4b-af8b-74c33b82681d" class=""></p>
+          </div>
+          <p id="fd8690c2-2ed9-4a00-9785-aabc43894464" class="">
+            I am not going to go through the implementation of components in
+            bootstrap since it is already in the documentation, I am going to
+            jump to implementing bootstrap with examples.
+          </p>
+        </div>
+        <hr id="0da9a994-8d6f-454a-b7ed-2a728e37705c" />
+        <h1 id="17b65bc9-7301-40db-9356-b9bbd05a65e3" class="">
+          <details open=""><summary>Examples</summary></details>
+        </h1>
+        <div class="indented">
+          <p id="c33d5fb5-209c-4a25-9056-c06316045b5c" class="">
+            I have taken a few simple examples to implement today using
+            bootstrap, this examples are from<a
+              href="https://www.frontendmentor.io/home"
+            >
+              front end mentor</a
+            >, and they are presented as newbie challenges. so lets start.
+          </p>
+          <h3 id="4324f59e-bac2-45c5-928e-e6a5b020b043" class="">
+            <details open="">
+              <summary>3-column-preview-card-component-main</summary>
+            </details>
+          </h3>
+          <div class="indented">
+            <figure
+              class="block-color-gray_background callout"
+              style="white-space: pre-wrap; display: flex"
+              id="c7b42955-90c9-44f7-a762-a0ee7c44592f"
+            >
+              <div style="font-size: 1.5em"><span class="icon">🔖</span></div>
+              <div style="width: 100%">
+                Here is a link oof the challenge:
+                <a
+                  href="https://www.frontendmentor.io/challenges/3column-preview-card-component-pH92eAR2-/hub"
+                  >here
+                </a>
+              </div>
+            </figure>
+            <p id="ce067753-7d9f-456e-84e8-5839e3221616" class="">
+              My point today is to make this look as exact as possible, but I’ll
+              ignore the simple things, and I’ll try to be less competitive.
+            </p>
+            <h3 id="2b69aa82-996e-4e52-9b9c-2649144746a6" class="">
+              Overview of the example
+            </h3>
+            <p id="2d232b09-76bd-4914-af48-88327105bba6" class="">
+              the website allows you to download all the files needed to
+              maintain this challenge:
+            </p>
+            <p id="a778a8d6-9d8d-495c-b7fa-289b9d19a657" class="">
+              Desktop view:
+            </p>
+            <figure id="87a9b4fb-f10f-44e1-ba31-5292e6380337" class="image">
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/desktop-design.jpg"
+                ><img
+                  style="width: 1440px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/desktop-design.jpg"
+              /></a>
+            </figure>
+            <p id="1ad20f95-7b04-47b7-9892-e9dc709ab887" class="">
+              Mobile view:
+            </p>
+            <figure
+              id="b0352280-3104-4c31-adcf-dbdff7b122e8"
+              class="image"
+              style="text-align: center"
+            >
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/mobile-design.jpg"
+                ><img
+                  style="width: 375px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/mobile-design.jpg"
+              /></a>
+            </figure>
+            <h3 id="6afe2086-b845-4bbd-9352-ce0cb595aa2b" class="">
+              Smaller approach
+            </h3>
+            <p id="1a63e03d-bad0-41c5-83c9-72c732b395e5" class="">
+              Jumping to Miro:
+            </p>
+            <figure id="06bf6947-c355-4d43-8925-083bc9272ce0" class="image">
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%203.png"
+                ><img
+                  style="width: 1125px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%203.png"
+              /></a>
+            </figure>
+            <p id="c55c354e-e2f9-4309-98c3-dcde6df6f197" class="">
+              Now implementing this small approach:
+            </p>
+            <p id="81454f58-a493-4363-a0da-ba7452c1f64d" class="">
+              How do you expect it to look with no css or bootstrap? UGLY !
+            </p>
+            <figure id="b2c83fdc-789b-45fe-b79e-7d4443b05cac" class="image">
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%204.png"
+                ><img
+                  style="width: 1142px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%204.png"
+              /></a>
+            </figure>
+            <p id="cdf62b0d-44d8-43bb-8bfc-358c6ce0ed17" class="">
+              let’s start now piece by piece, although it’s not completely
+              looking like the original , but I think it is coming together
+              nicely:
+            </p>
+            <figure id="6c7cda5a-ed6e-4661-a6b9-9d7cbf2f523b" class="image">
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%205.png"
+                ><img
+                  style="width: 1390px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%205.png"
+              /></a>
+            </figure>
+            <p id="8081df6a-fcf7-46f9-9550-57c3c60c8ab8" class="">
+              I kind of went a little overboard, but you can always go back to
+              the commits, for the desktop view, we are some how finished:
+            </p>
+            <figure id="c56da060-00d7-44ac-baf4-4f0e1c8305d8" class="image">
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%206.png"
+                ><img
+                  style="width: 1245px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%206.png"
+              /></a>
+            </figure>
+            <p id="41520049-b9cd-46c1-b763-085797a8522e" class="">
+              the mobile view should not take more time than the Desktop view,
+              here’s the secondary approach:
+            </p>
+            <p id="20fbce16-a992-40c3-901b-c775dfe72467" class="">
+              it’s almost the same 😅
+            </p>
+            <figure
+              id="4c040378-66f4-4814-b3c2-b471faa69caf"
+              class="image"
+              style="text-align: center"
+            >
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Screen_Shot_2023-03-24_at_12.47.07.png"
+                ><img
+                  style="width: 524px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Screen_Shot_2023-03-24_at_12.47.07.png"
+              /></a>
+            </figure>
+            <pre
+              id="faf92dab-98ce-4925-9c17-ff16c53cd369"
+              class="code"
+            ><code>&lt;div class=&quot;container container-sm container-md my-5 mx-auto&quot;&gt;
+      &lt;!-- Row, parent to the smaller children  --&gt;
+      &lt;div class=&quot;row mt-5 w-90 h-100 mx-auto row-col-3 justify-content-center&quot;&gt;
+        &lt;!-- the smaller columns --&gt;
+        &lt;!-- note that since they are identiical, do one and copy the rest --&gt;
+
+        &lt;div
+          class=&quot;col-10 col-sm-12 col-md-4 col-lg-3 orange p-5 justify-content-start w-90&quot;
+        &gt;
+          &lt;div class=&quot;my-2&quot;&gt;
+          &lt;/div&gt;
+          &lt;h3 class=&quot;text-left my-4 display-6&quot;&gt;Sedans&lt;/h3&gt;
+          &lt;p class=&quot;my-3&quot;&gt;
+            Choose a sedan for its affordability and excellent fuel economy.
+            Ideal for cruising in the city or on your next road trip.
+          &lt;/p&gt;
+          &lt;div class=&quot;mt-5&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn w-50&quot;&gt;learn more&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div
+          class=&quot;col-10 col-sm-12 col-md-4 col-lg-3 light-blue p-5 justify-content-start w-90&quot;
+        &gt;
+          &lt;div class=&quot;my-2&quot;&gt;
+            &lt;img src=&quot;images/icon-suvs.svg&quot; alt=&quot;sedans icon&quot; /&gt;
+          &lt;/div&gt;
+          &lt;h3 class=&quot;text-left my-4 display-6&quot;&gt;SUVs&lt;/h3&gt;
+          &lt;p&gt;
+            Take an SUV for its spacious interior, power, and versatility.
+            Perfect for your next family vacation and off-road adventures.
+          &lt;/p&gt;
+          &lt;div class=&quot;mt-5&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn w-50&quot;&gt;learn more&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div
+          class=&quot;col-10 col-sm-12 col-md-4 col-lg-3 green p-5 justify-content-start w-90&quot;
+        &gt;
+          &lt;div class=&quot;my-2&quot;&gt;
+            &lt;img src=&quot;images/icon-luxury.svg&quot; alt=&quot;sedans icon&quot; /&gt;
+          &lt;/div&gt;
+          &lt;h3 class=&quot;text-left my-4 display-6&quot;&gt;Luxury&lt;/h3&gt;
+          &lt;p&gt;
+            Cruise in the best car brands without the bloated prices. Enjoy the
+            enhanced comfort of a luxury rental and arrive in style.
+          &lt;/p&gt;
+          &lt;div class=&quot;mt-5&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn w-50&quot;&gt;learn more&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+            <p id="defe5ca3-bd0d-4ba3-8b32-d5ab05c4a153" class=""></p>
+            <p id="876895d6-7711-45b9-ba7f-3db89d3ccf09" class=""></p>
+            <p id="a0d045a4-eb80-42d3-a6d4-0a5cb7126da0" class=""></p>
+          </div>
+          <h3 id="b0ba6e50-2d1f-4bf8-8676-e081882d0ee8" class="">
+            <details open=""><summary>Qr-code card component</summary></details>
+          </h3>
+          <div class="indented">
+            <p id="acd8ebd0-f748-444b-a5a4-dd6832c536ff" class="">
+              another easy take is the Qr-code card component offered by the
+              front end mentor.
+            </p>
+            <figure
+              class="block-color-gray_background callout"
+              style="white-space: pre-wrap; display: flex"
+              id="19864754-5d1d-41eb-ba49-e3f7c6ed1c29"
+            >
+              <div style="font-size: 1.5em"><span class="icon">🔖</span></div>
+              <div style="width: 100%">
+                Find the challenge
+                <a
+                  href="https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H/hub"
+                  >here</a
+                >
+              </div>
+            </figure>
+            <p id="ee65aa81-ca97-4b7e-8b4e-0a5e1db0f470" class="">
+              the Desktop design:
+            </p>
+            <figure id="a1fb6e2f-1b4e-452d-8249-0851f45b7b18" class="image">
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/desktop-design%201.jpg"
+                ><img
+                  style="width: 1440px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/desktop-design%201.jpg"
+              /></a>
+            </figure>
+            <p id="f4db99f0-e005-4c4f-9ec5-31229baec816" class="">
+              the mobile design:
+            </p>
+            <figure
+              id="c412782e-a121-45bb-aa21-c76bba8835e4"
+              class="image"
+              style="text-align: center"
+            >
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/mobile-design%201.jpg"
+                ><img
+                  style="width: 375px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/mobile-design%201.jpg"
+              /></a>
+            </figure>
+            <p id="0cca3f6f-3fcb-4de6-8fee-aa35c2a19792" class="">
+              this should be fairly easy! , jumping to Miro:
+            </p>
+            <figure id="1e3d94f1-1947-4f58-9611-8ff36fcb1042" class="image">
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%207.png"
+                ><img
+                  style="width: 840px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%207.png"
+              /></a>
+            </figure>
+            <p id="2621c3d8-573f-4a24-b8b1-7ba28da341bd" class="">
+              and this is how it looks like with no css or anything else, which
+              is normal:
+            </p>
+            <figure id="518f5f41-c03b-4832-8a0d-ea6de66a2f3a" class="image">
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%208.png"
+                ><img
+                  style="width: 732px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Untitled%208.png"
+              /></a>
+            </figure>
+            <p id="2f90fe4c-0138-44b9-a2c8-017ab770f662" class="">
+              For the desktop view , the theme is done :
+            </p>
+            <figure id="132a4c13-23d0-4fbd-8191-9f54db2b5eb6" class="image">
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Screen_Shot_2023-03-24_at_13.53.48.png"
+                ><img
+                  style="width: 1308px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Screen_Shot_2023-03-24_at_13.53.48.png"
+              /></a>
+            </figure>
+            <p id="9470f60f-f762-4a1f-8e21-3ecbead93808" class="">
+              but when we switch to the mobile view (600px and less)
+            </p>
+            <figure
+              id="327343f9-ca12-4d5f-a7e3-9c0a355346f9"
+              class="image"
+              style="text-align: center"
+            >
+              <a
+                href="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Screen_Shot_2023-03-24_at_13.55.16.png"
+                ><img
+                  style="width: 466px"
+                  src="Bootstrap5%20from%20Basics%20to%20advanced%20%E2%80%98not%20really%E2%80%99%20ccb72f12446547faa4c71320c32de581/Screen_Shot_2023-03-24_at_13.55.16.png"
+              /></a>
+            </figure>
+            <p id="7d31949e-44a8-437d-bb4c-60fc2e7f1554" class="">
+              OK So it’s not working for me but I will try to fix it :)
+            </p>
+            <p id="c528e8c0-09b3-460f-90c6-f51457e37588" class=""></p>
+          </div>
+          <h3 id="6274e245-0422-45a4-9c7b-af6a8ec88b77" class="">
+            <details open=""><summary>clipboard-landing-page</summary></details>
+          </h3>
+          <div class="indented">
+            <p id="52372d29-93c2-4500-ba54-8793c960fcdb" class="">
+              This I will do with the kids later on, But if you have noticed we
+              have been looking at bootstrap the wrong way! , bootstrap is a
+              mobile first approach, this means that we start from the mobile
+              design first and scale up as we go, let’s use this approach in the
+              next design!
+            </p>
+            <p id="030901f4-111e-41e9-ab30-fedea22fadb9" class=""></p>
+            <p id="c25b8aa3-d086-417c-a4fd-137a825c4e16" class=""></p>
+            <p id="02a95a05-3cfa-419b-993a-1a031a78e8d4" class=""></p>
+          </div>
+        </div>
+        <figure
+          class="block-color-gray_background callout"
+          style="white-space: pre-wrap; display: flex"
+          id="ecd28591-3176-4dcf-9e66-ae4e47ff0b19"
+        >
+          <div style="font-size: 1.5em"><span class="icon">📢</span></div>
+          <div style="width: 100%">
+            I did not have enough time to finish this , to be continued 🙂,
+            thank for reading and I hope this was helpful for you.
+          </div>
+        </figure>
+        <p id="be8b532b-fd40-43e1-8b25-2efb198232ef" class=""></p>
+      </div>
+    </article>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+  </body>
 </html>
