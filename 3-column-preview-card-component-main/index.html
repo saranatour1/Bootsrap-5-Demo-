@@ -21,67 +21,104 @@
       crossorigin="anonymous"
     />
     <style>
-      *{
+      @import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400;700&family=Inter:wght@400;700&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca:wght@400;700&family=Outfit:wght@300;400;600&family=Roboto&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,700;1,200&family=Spline+Sans+Mono:ital,wght@1,700&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+      * {
         /* border: 1px solid red; */
       }
       body {
         background-color: hsl(0, 0%, 95%);
       }
-      .orange{
+      .orange {
         background-color: hsl(31, 77%, 52%);
       }
-      .light-blue{
+      .light-blue {
         background-color: hsl(184, 100%, 22%);
       }
-      .green{
-       background-color:  hsl(179, 100%, 13%);
+      .green {
+        background-color: hsl(179, 100%, 13%);
+      }
+      .btn {
+        background-color: hsl(0, 0%, 95%);
+        border-radius: 18px;
+
+        font-family: "Lexend Deca", sans-serif;
+        font-weight: 400;
+      }
+      .btn:hover {
+        color: hsl(0, 0%, 95%) !important;
+        border: 1px solid hsl(0, 0%, 95%) !important;
+      }
+
+      .orange .btn {
+        color: hsl(31, 77%, 52%);
+      }
+      .light-blue .btn {
+        color: hsl(184, 100%, 22%);
+      }
+      .green .btn {
+        color: hsl(179, 100%, 13%);
+      }
+      h3 {
+        color: hsl(0, 0%, 95%);
+        font-family: 'Big Shoulders Display', cursive;
+        
+      }
+      p {
+        color: hsla(0, 0%, 100%, 0.75);
+        
+        font-family: "Lexend Deca", sans-serif;
+        font-weight: 400;
+        font-size: 15px;
       }
     </style>
   </head>
   <body>
     <!-- Parent  -->
-    <div class="container container-sm container-md my-5  mx-auto ">
+    <div class="container container-sm container-md my-5 mx-auto">
       <!-- Row, parent to the smaller children  -->
-      <div class="row  mt-5 w-90 h-100 mx-auto rounded  row-col-3 justify-content-center">
+      <div
+        class="row mt-5 w-90 h-100 mx-auto rounded row-col-3 justify-content-center"
+      >
         <!-- the smaller columns -->
         <!-- note that since they are identiical, do one and copy the rest -->
-        <div class="col-3 orange rounded-start">
-          <div>
+        <div class="col-3 orange rounded-start p-5 justify-content-start w-90">
+          <div class="my-2">
             <img src="images/icon-sedans.svg" alt="sedans icon" />
           </div>
-          <h3>Sedans</h3>
-          <p>
+          <h3 class="text-left my-4 display-6">Sedans</h3>
+          <p class="my-3">
             Choose a sedan for its affordability and excellent fuel economy.
             Ideal for cruising in the city or on your next road trip.
           </p>
-          <div>
-            <button>learn more</button>
+          <div class="mt-5">
+            <button type="button" class="btn w-50">learn more</button>
           </div>
         </div>
-        <div class="col-3 light-blue ">
-          <div>
+        <div class="col-3 light-blue p-5 justify-content-start w-90">
+          <div class="my-2">
             <img src="images/icon-suvs.svg" alt="sedans icon" />
           </div>
-          <h3>SUVs</h3>
+          <h3 class="text-left my-4 display-6">SUVs</h3>
           <p>
             Take an SUV for its spacious interior, power, and versatility.
             Perfect for your next family vacation and off-road adventures.
           </p>
-          <div>
-            <button>learn more</button>
+          <div class="mt-5">
+            <button type="button" class="btn w-50">learn more</button>
           </div>
         </div>
-        <div class="col-3 green rounded-end">
-          <div>
+        <div class="col-3 green rounded-end p-5 justify-content-start w-90">
+          <div class="my-2">
             <img src="images/icon-luxury.svg" alt="sedans icon" />
           </div>
-          <h3>Luxury</h3>
+          <h3 class="text-left my-4 display-6">Luxury</h3>
           <p>
             Cruise in the best car brands without the bloated prices. Enjoy the
             enhanced comfort of a luxury rental and arrive in style.
           </p>
-          <div>
-            <button>learn more</button>
+          <div class="mt-5">
+            <button type="button" class="btn w-50">learn more</button>
           </div>
         </div>
       </div>
