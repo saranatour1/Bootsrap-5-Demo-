@@ -13,18 +13,19 @@
     />
 
     <title>Frontend Mentor | 3-column preview card component</title>
-
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
       crossorigin="anonymous"
     />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400;700&family=Inter:wght@400;700&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca:wght@400;700&family=Outfit:wght@300;400;600&family=Roboto&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,700;1,200&family=Spline+Sans+Mono:ital,wght@1,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap");
       * {
         /* border: 1px solid red; */
+        /* font-family: 'Lexend Deca', sans-serif; */
+        /* font-family: 'Big Shoulders Display', cursive; */
       }
       body {
         background-color: hsl(0, 0%, 95%);
@@ -61,7 +62,7 @@
         color: hsl(179, 100%, 13%);
       }
       .row {
-        border-radius: 8px;
+        border-radius: 8px ;
       }
       h3 {
         color: hsl(0, 0%, 95%);
@@ -74,7 +75,6 @@
         font-weight: 400;
         font-size: 15px;
       }
-      /* Use javascript to replace classes instead of creating a new media query  */
       @media only screen and (max-width: 1800px) {
         .orange {
           border-radius:10px 0px 0px 10px ;
@@ -94,15 +94,14 @@
     </style>
   </head>
   <body>
-    <!-- Parent  -->
     <div class="container container-sm container-md my-5 mx-auto">
       <!-- Row, parent to the smaller children  -->
-      <div class="row mt-5 w-90 h-100 mx-auto row-col-3 justify-content-center">
+      <div class="row mt-5 w-90 h-100 mx-auto justify-content-center">
         <!-- the smaller columns -->
         <!-- note that since they are identiical, do one and copy the rest -->
-
+        <!-- col-10 col-sm-12 col-md-4 -->
         <div
-          class="col-10 col-sm-12 col-md-4 col-lg-3 orange p-5 justify-content-start w-90"
+          class=" col-10 col-lg-3 col-md-4 col-sm-12   orange p-5 justify-content-start w-90"
         >
           <div class="my-2">
             <img src="images/icon-sedans.svg" alt="sedans icon" />
@@ -148,22 +147,9 @@
         </div>
       </div>
     </div>
-
-    <!-- Sedans
-  Choose a sedan for its affordability and excellent fuel economy. Ideal for cruising in the city 
-  or on your next road trip.
-
-  SUVs
-  Take an SUV for its spacious interior, power, and versatility. Perfect for your next family vacation 
-  and off-road adventures.
-
-  Luxury
-  Cruise in the best car brands without the bloated prices. Enjoy the enhanced comfort of a luxury 
-  rental and arrive in style. -->
-
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
       crossorigin="anonymous"
     ></script>
   </body>
