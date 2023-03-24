@@ -50,7 +50,7 @@
         color: white !important;
       }
       .container:first-of-type {
-        background-image: url(images/bg-header-mobile.png);
+        /* background-image: url(images/bg-header-mobile.png); */
         background-repeat: no-repeat;
       }
     </style>
@@ -64,33 +64,37 @@
   <body>
     <!-- Main landing page section -->
     <div
-      class="container d-flex flex-column justify-content-center align-items-center my-5 h-100"
+      class="container-fluid d-flex flex-column justify-content-center align-items-center my-5 h-100"
     >
       <div class="my-5">
         <img src="images/logo.svg" alt="C" />
       </div>
       <h2 class="text-center mb-3">A history of everything you copy</h2>
-      <p class="text-center mb-3">
+      <p class="text-center mb-3 ">
         Clipboard allows you to track and organize everything you copy.
         Instantly access your clipboard on all your devices.
       </p>
-      <div class="mt-3">
+
+      <div class="d-xl-flex justify-content-lg-between w-25 ">
+      <div class="mt-3 ">
         <button
           type="button"
-          class="btn btn-green px-5 rounded-pill shadow p-3 rounded"
+          class="btn btn-green px-4 rounded-pill shadow p-3 rounded"
         >
           Download for iOS
         </button>
       </div>
-      <div class="mt-3">
+      <div class="mt-3 ">
         <button
           type="button"
-          class="btn btn-blue px-5 rounded-pill shadow p-3 rounded"
+          class="btn btn-blue px-4 rounded-pill shadow p-3 rounded"
         >
           Download for Mac
         </button>
       </div>
     </div>
+    </div>
+    <!-- Keep track of your snippets secondary  -->
     <div
       class="container my-5 d-flex flex-column justify-content-center align-items-center"
     >
@@ -122,39 +126,36 @@
           Instantly saves and syncs snippets across all your devices.
         </p>
       </hgroup>
-      <hgroup class="text-center">
+      <hgroup class="text-center mb-5">
         <h3 class="my-3">Complete History</h3>
         <p class="mb-4 w-90">
           Retrieve any snippets from the first moment you started using the app.
         </p>
       </hgroup>
     </div>
+    <!-- Acess Cliboard page -->
+    <div class="container  d-flex flex-column justify-content-center align-items-center mt-5">
+      <hgroup class="text-center">
+        <h2 class="my-3">Access Clipboard anywhere</h2>
+        <p class="mb-4 w-90">
+          Whether you’re on the go, or at your computer, you can access all your Clipboard 
+          snippets in a few simple clicks.
+        </p>
+      </hgroup>
+      <div class="mb-5 mx-auto text-center ">
+        <img src="images/image-devices.png" class="w-75" alt="C" />
+      </div>
+
+    </div>
+
+
+
+
 
     <!-- 
-
-
-
-  
   
 
- 
 
-
-
-
-
-  
-
- 
-
- 
-
- 
-
-  Access Clipboard anywhere
-
-  Whether you’re on the go, or at your computer, you can access all your Clipboard 
-  snippets in a few simple clicks.
 
   Supercharge your workflow
 
