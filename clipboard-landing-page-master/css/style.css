@@ -18,6 +18,11 @@ h3 {
   font-weight: 700 !important;
   color: var(--dark-grayish-blue) !important;
 }
+.container:first-of-type{
+
+}
+
+
 p {
   font-family: "Bai Jamjuree", sans-serif;
   font-weight: 400 !important;
@@ -37,4 +42,13 @@ p {
 }
 footer {
   background-color: #fcfcfcfc;
+}
+@media only screen and (max-width: 768px) {
+  .container-fluid:first-child{
+    background-image: url(../images/bg-header-mobile.png) !important;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% auto;
+
+}
 }
